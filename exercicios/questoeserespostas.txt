@@ -1,17 +1,26 @@
 1. Uma lista com o nome de todas as mulheres
+R: SELECT nome FROM gafanhotos WHERE sexo = 'f';
 
 2. Uma lista com os dados de todos aqueles que nasceram entre 1/Jan/2000 e 31/Dez/2000
+R: SELECT * FROM gafanhotos WHERE nascimento BETWEEN '2000-01-01' AND '2000-12-31';
 
 3. Uma lista com o nome de todos os homens que trabalham como programadores
+R: SELECT nome FROM gafanhotos WHERE profissao = 'programador' AND sexo = 'm';
 
 4. Uma lista com os dados de todas as mulheres que nasceram no Brasil e que têm seu nome iniciado com a letra 'J'
+R: SELECT * FROM gafanhotos WHERE sexo = 'f' AND nacionalidade = 'Brasil' AND nome LIKE 'J%';
 
 5. Uma lista com o nome e a nacionalidade de todos os homens que têm "Silva" no nome, não nasceram no Brasil e pesam menos de 100Kg
+R: SELECT nome, nacionalidade FROM gafanhotos WHERE sexo = 'm' AND nome LIKE '%Silva%' AND  nacionalidade != 'Brasil' AND peso < 100;
 
 6. Qual a maior altura de homens que moram no Brasil?
+R: SELECT MAX(altura) FROM gafanhotos WHERE sexo = 'm' AND nacionalidade = 'Brasil';
 
 7. Qual a média de peso de todos os cadastrados?
+R: SELECT AVG(peso) FROM gafanhotos;
 
-8. Qual o menor peso entre as mulheres que nasceram fora do Brasil e entre 01/Jan/1900 e 31/12/2000?
+8. Qual o menor peso entre as mulheres que nasceram fora do Brasil e entre 01/Jan/1990 e 31/12/2000?
+R: SELECT min(peso) FROM gafanhotos WHERE sexo = 'f' AND nacionalidade != ' Brasil' AND nascimento BETWEEN '1990-01-01' AND '2000-12-31';
 
 9. Quantas mulheres têm mais de 1,9m de altura?
+R: SELECT COUNT(*) FROM gafanhotos WHERE sexo = 'f' AND altura > 1.9;
